@@ -26,7 +26,7 @@ const propsData = [
     content: () => <p className="text-sm">이력서 페이지로 연결됩니다.</p>,
   },
   {
-    trigger: () => <MdMailOutline size={24} className="cursor-pointer" />,
+    trigger: () => <MdMailOutline size={24} />,
     content: () => <p className="text-sm">kyoooungjin@gmail.com</p>,
   },
 ];

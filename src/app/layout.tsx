@@ -33,7 +33,7 @@ export default function RootLayout({
       </head>
       <body className={"bg-background text-black antialiased"}>
         <section className="mx-auto max-w-3xl xl:mx-w-[50rem] xl:px-8">
-          <div className="box-border flex h-full flex-col justify-between">
+          <div className="box-border  h-full flex flex-col justify-between">
             <Header />
             <div className="pb-6 px-4">{children}</div>
             <Footer />
