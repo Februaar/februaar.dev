@@ -11,8 +11,9 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
-        gray: "rgb(216,216,216)",
-        "gray-500": "rgb(188 188 188)",
+        "gray-primary": "rgb(216, 216, 216)",
+        "gray-dark": "rgb(188, 188, 188)",
+        "blue-primary": "rgb(43, 96, 193, 0.1)",
       },
       width: {
         fit: "fit-content",
