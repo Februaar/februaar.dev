@@ -1,0 +1,10 @@
+{
+  "tailwind": {
+    "config": "tailwind.config.ts",
+    "css": "src/app/global.css",
+    "prefix": ""
+  },
+  "aliases": {
+    "components": "@/components"
+  }
+}
