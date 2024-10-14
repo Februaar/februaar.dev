@@ -28,7 +28,6 @@ export default function Home() {
         <Tag />
         <Tag />
         <Tag />
-        <Tag />
       </div>
 
       <div className="flex flex-col pt-12 pb-6">
