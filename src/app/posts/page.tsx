@@ -1,17 +1,16 @@
-import Tag2 from "../../components/Tag2";
+import { Metadata } from "next";
 
-export default function PostDetailPage() {
-  return (
-    <div>
-      <div className="mb-8">
-        <h1 className="text-[32px] font-bold mt-6 mb-3 pb-2 border-b">제목</h1>
-        <div className="flex flex-col gap-2">
-          <span>Oct.07.2024</span>
-          <Tag2 />
-        </div>
-      </div>
+// import FilteredPostList from "../../components/FilteredPostList";
 
-      <div>내용</div>
-    </div>
-  );
+export const metadata: Metadata = {
+  title: "Posts | februaar.dev",
+  description: "전체 게시글 페이지",
+};
+
+export default function PostsPage() {
+  if (!posts) {
+    return <h1>Empty</h1>;
+  }
+
+  // return <FilteredPostList />;
 }
