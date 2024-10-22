@@ -1,7 +1,16 @@
+// import { allPosts } from "content-collections";
+
 export default function PostsPage() {
   return (
-    <div>
-      <div>게시글</div>
-    </div>
+    <ul>
+      {/* {allPosts.map((post) => (
+        <li key={post._meta.path}>
+          <a href={`/posts/${post._meta.path}`}>
+            <h3>{post.title}</h3>
+            <p>{post.summary}</p>
+          </a>
+        </li>
+      ))} */}
+    </ul>
   );
 }
