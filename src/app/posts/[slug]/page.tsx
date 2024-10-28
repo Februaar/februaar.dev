@@ -1,24 +1,23 @@
-import { getCollection } from "@content-collections/core";
-import { useRouter } from "next/router";
+// import { useRouter } from "next/router";
 
-export default function Post() {
-  const router = useRouter();
-  const { slug } = router.query;
-  const posts = getCollection("posts");
-  const post = posts.find((post) => post._meta.path === slug);
+// export default function Post() {
+//   const router = useRouter();
+//   const { slug } = router.query;
+//   const posts = getCollection("posts");
+//   const post = posts.find((post) => post._meta.path === slug);
 
-  if (!post) {
-    return <div>Loading...</div>;
-  }
+//   if (!post) {
+//     return <div>Loading...</div>;
+//   }
 
-  return (
-    <div>
-      <h1>{post.title}</h1>
-      <p>{post.date}</p>
-      <div>{post.mdx}</div>
-    </div>
-  );
-}
+//   return (
+//     <div>
+//       <h1>{post.title}</h1>
+//       <p>{post.date}</p>
+//       <div>{post.mdx}</div>
+//     </div>
+//   );
+// }
 
 // import Tag2 from "../../../components/Tag2";
 
