@@ -46,3 +46,26 @@
 //     </div>
 //   );
 // }
+
+import { MDXRemote } from "next-mdx-remote";
+import { getPostData } from "@/lib/posts";
+
+export default function PostPage({ mdxSource, frontMatter }) {
+  return (
+    <article>
+      <h1>{frontMatter.title}</h1>
+      <MDXRemote {...mdxSource} />
+    </article>
+  );
+}
+
+export async function getStaticProps({ params }) {
+  const postData = await getPostData(params.id);
+
+  return {
+    props: {
+      mdxSource: postData.mdxSource,
+      frontMatter: postData,
+    },
+  };
+}

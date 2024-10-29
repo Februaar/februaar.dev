@@ -1,16 +1,14 @@
-// import { allPosts } from "content-collections";
+import React from "react";
+import { getPosts } from "@/lib/posts";
+import { Post } from "@/lib/types";
+import FilteredPostList from "@/components/FilteredPostList";
 
-export default function PostsPage() {
-  return (
-    <ul>
-      {/* {allPosts.map((post) => (
-        <li key={post._meta.path}>
-          <a href={`/posts/${post._meta.path}`}>
-            <h3>{post.title}</h3>
-            <p>{post.summary}</p>
-          </a>
-        </li>
-      ))} */}
-    </ul>
-  );
+export default async function PostsPage() {
+  const posts: Post[] = await getPosts(); // 서버 측에서 직접 데이터 호출
+
+  if (!posts || posts.length === 0) {
+    return <h1>Empty</h1>; // TODO: Empty UI
+  }
+
+  return <FilteredPostList />;
 }
