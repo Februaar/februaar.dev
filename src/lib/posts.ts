@@ -1,5 +1,6 @@
 import path from "path";
-import { readdir } from "fs/promises";
+import { readdir, readFile } from "fs/promises";
+import { serialize } from "next-mdx-remote/serialize";
 import { Post } from "@/lib/types";
 
 export async function getPosts(): Promise<Post[]> {
@@ -12,13 +13,24 @@ export async function getPosts(): Promise<Post[]> {
 
   const posts = await Promise.all(
     files.map(async (filename) => {
+      const filePath = path.join(postPath, filename);
+      const fileContent = await readFile(filePath, "utf-8");
+
+      // next-mdx-remote로 MDX 콘턴체를 직렬화하고 메타데이터 추출
+      const mdxSource = await serialize(fileContent, {
+        parseFrontmatter: true,
+      });
       const { metadata } = await import(`../contents/${filename}`);
       const slug = filename.replace(".mdx", ""); // 파일명에서 확장자 제거
-      return { slug, ...metadata };
+
+      return {
+        slug,
+        ...mdxSource.frontmatter, // 메타데이터 추출
+        content: mdxSource, // MDX 본문 포함
+        ...metadata,
+      };
     })
   );
-
-  posts.sort((a, b) => +new Date(b.publishDate) - +new Date(a.publishDate));
 
   return posts;
 }

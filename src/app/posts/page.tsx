@@ -1,4 +1,3 @@
-import React from "react";
 import { getPosts } from "@/lib/posts";
 import { Post } from "@/lib/types";
 import FilteredPostList from "@/components/FilteredPostList";
@@ -10,5 +9,5 @@ export default async function PostsPage() {
     return <h1>Empty</h1>; // TODO: Empty UI
   }
 
-  return <FilteredPostList />;
+  return <FilteredPostList posts={posts}/>;
 }
