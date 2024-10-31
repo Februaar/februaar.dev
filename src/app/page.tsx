@@ -9,7 +9,7 @@ export default async function Home() {
   return (
     <article>
       <div className="mt-12 mb-8">
-        <span className="page-title">Reflections</span>
+        <span className="page-title">Retrospect</span>
       </div>
       <ul className="post-list">
         {pinnedPosts.map((post) => (
