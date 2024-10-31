@@ -4,10 +4,10 @@ import { Post } from "@/lib/types";
 export default function PostCard({ posts }: { posts: Post }) {
   return (
     <Link href={`/posts/${posts.slug}`}>
-      <div className="flex justify-between">
-        <div>{posts.title}</div>
-        <div>{posts.publishDate}</div>
-      </div>
+      <li className="post-item">
+        <span className="post-item-title">{posts.title}</span>
+        <span className="post-item-date">{posts.publishDate}</span>
+      </li>
     </Link>
   );
 }

@@ -1,33 +1,36 @@
 import Link from "next/link";
-import { FaArrowRight } from "react-icons/fa";
 import { getSortedPostsByDate } from "@/utils/posts";
 import PostCard from "../components/PostCard";
-// import Tag from "../components/Tag";
 
 export default async function Home() {
   const sortedPosts = await getSortedPostsByDate();
+  const pinnedPosts = sortedPosts.filter((post) => post.pinned);
 
   return (
-    <main className="flex flex-col">
-      <section className="flex flex-col items-center pt-8 pb-6">
-        <p>한 가지에 몰두해 내 것으로 만드는 것을 좋아합니다.</p>
-      </section>
-      <div className="flex flex-wrap items-center justify-center gap-2 my-16 mx-20 space-x-2">
-        {/* <Tag /> */} 태그
+    <article>
+      <div className="mt-12 mb-8">
+        <span className="page-title">Reflections</span>
       </div>
+      <ul className="post-list">
+        {pinnedPosts.map((post) => (
+          <PostCard key={post.slug} posts={post} />
+        ))}
+      </ul>
 
-      <div className="flex flex-col pt-12 pb-6">
+      <div className="mt-12 mb-8">
+        <span className="page-title">Recent Posts</span>
+      </div>
+      <ul className="post-list">
         {sortedPosts.slice(0, 5).map((sortedPost) => (
           <PostCard key={sortedPost.slug} posts={sortedPost} />
         ))}
-      </div>
+      </ul>
 
       <Link href={"/posts"}>
-        <button className="flex items-center space-x-2">
-          <span className="text-lg">All Posts</span>
-          <FaArrowRight />
+        <button className="post-more">
+          <span className="text-sm bg-transparent">MORE</span>
         </button>
       </Link>
-    </main>
+    </article>
   );
 }

@@ -1,25 +1,23 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-// import localFont from "next/font/local";
 import "./globals.css";
-
-// const geistSans = localFont({
-//   src: "./fonts/GeistVF.woff",
-//   variable: "--font-geist-sans",
-//   weight: "100 900",
-// });
-// const geistMono = localFont({
-//   src: "./fonts/GeistMonoVF.woff",
-//   variable: "--font-geist-mono",
-//   weight: "100 900",
-// });
+import "./style.css";
 
 export const metadata: Metadata = {
   title: "februaar.dev",
   description: "정경진의 개발 블로그. 프론트엔드 개발 관련 기록을 남깁니다.",
   metadataBase: new URL("https://februaar.dev"),
 };
+
+const itemsData = [
+  {
+    pathName: "GitHub",
+    path: "https://github.com/Februaar",
+  },
+  { pathName: "Email", path: "https://github.com" },
+];
 
 export default function RootLayout({
   children,
@@ -31,14 +29,28 @@ export default function RootLayout({
       <head>
         <script />
       </head>
-      <body className={"bg-background text-black antialiased"}>
-        <section className="mx-auto max-w-3xl xl:mx-w-[50rem] xl:px-8">
-          <div className="box-border  h-full flex flex-col justify-between">
-            <Header />
-            <div className="pb-6 px-4">{children}</div>
-            <Footer />
-          </div>
-        </section>
+
+      <body>
+        <main className="container px-4 py-20 min-h-[70vh]">
+          <Header />
+          <div>{children}</div>
+        </main>
+        
+        <hr className="container border-[#323132] px-4 mt-24" />
+
+        <div className="container px-4 my-4 mt-8">
+          <ul className="flex gap-3">
+            {itemsData.map((data) => (
+              <li className="sns-item" key={data.path}>
+                <Link href={data.path} target="_blank">
+                  {data.pathName}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <Footer />
       </body>
     </html>
   );

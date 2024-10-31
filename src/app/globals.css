@@ -2,17 +2,35 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @font-face {
-  font-family: 'LINESeedKR';
-  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/LINESeedKR.woff2') format('woff2');
-  font-weight: 700;
+  font-family: "Eulyoo1945";
+  src: url("/fonts/Eulyoo1945.ttf") format("truetype");
   font-style: normal;
 }
 
-body {
-  font-family: LINESeedKR;
+* {
+  font-family: "Eulyoo1945";
+  background-color: #18181a;
+  /* color: #191919; */
+  color: #f3f4f6;
 }
+
+body {
+  min-width: 280px;
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  letter-spacing: 0.02em;
+}
+
+h1 {
+  letter-spacing: 0.05em;
+}
+
+header > a {
+  display: inline-block;
+}
+
 /* :root {
   --background: #ffffff;
   --foreground: #171717;
