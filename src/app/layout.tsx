@@ -31,17 +31,17 @@ export default function RootLayout({
       </head>
 
       <body>
-        <main className="container px-4 py-20 min-h-[70vh]">
+        <main className="container px-4 py-14 min-h-[70vh]">
           <Header />
           <div>{children}</div>
         </main>
-        
-        <hr className="container border-[#323132] px-4 mt-24" />
+
+        <hr className="container separator px-4 mt-24" />
 
         <div className="container px-4 my-4 mt-8">
           <ul className="flex gap-3">
             {itemsData.map((data) => (
-              <li className="sns-item" key={data.path}>
+              <li className="sns-item to-light" key={data.path}>
                 <Link href={data.path} target="_blank">
                   {data.pathName}
                 </Link>

@@ -1,9 +1,9 @@
-import { getPosts } from "@/lib/posts";
-import { groupPostsByYear } from "@/utils/posts";
+// import { getPosts } from "@/lib/posts";
+import { getSortedPostsByDate, groupPostsByYear } from "@/utils/posts";
 import PostCard from "@/components/PostCard";
 
 export default async function FilteredPostList() {
-  const posts = await getPosts();
+  const posts = await getSortedPostsByDate();
   const groupedPostsByYear = groupPostsByYear(posts);
 
   const YearSection = () => {

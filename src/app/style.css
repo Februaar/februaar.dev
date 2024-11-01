@@ -10,10 +10,16 @@
   }
 }
 
+.separator {
+  border-width: 1px;
+  border-color: light-dark(#82898c, #323132);
+}
+
 .title {
   font-size: 24px;
   font-weight: 800;
   width: fit-content;
+  margin-right: 1rem;
 }
 
 .page-title {
@@ -34,11 +40,15 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  transition: color 0.5s ease;
+
+  span {
+    transition: color 0.5s ease;
+  }
 }
 
 .post-item:hover span {
-  color: #5e6365;
+  color: light-dark(rgba(65, 65, 65, 0.5), rgba(187, 187, 187, 0.5));
+
 }
 
 .post-item-title {
@@ -62,15 +72,21 @@
   display: flex;
   margin: 0 auto;
   margin-top: 2.5rem;
-  color: rgba(156, 163, 175, 0.5);
-  background-color: rgba(45, 45, 45, 0.5);
+  color: light-dark(#f3f4f6, rgba(156, 163, 175, 0.5));
+  background-color: light-dark(rgba(45, 45, 45, 0.5), rgba(45, 45, 45, 0.5));
+  transition: background-color 0.5s ease;
   border-radius: 0.5rem;
   padding: 6px 12px;
+}
+
+.post-more:hover {
+  color: light-dark(#f3f4f6, rgba(156, 163, 175, 0.5));
+  background-color: light-dark(rgb(19, 82, 149), rgba(47, 47, 47, 1));
 }
 
 .sns-item {
   font-weight: 300;
   text-decoration: underline;
-  text-decoration-color: #5e6365;
+  text-decoration-color: light-dark(#dde0e6, rgba(156, 163, 175, 0.5));
   text-underline-offset: 4px;
 }

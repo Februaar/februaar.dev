@@ -19,7 +19,7 @@ type PostGroupByYear = {
   [key in string]: Post[];
 };
 
-// 년도별로 게시글 그룹화
+// 연도별로 게시글 그룹화
 export function groupPostsByYear(posts: Post[]): PostGroupByYear {
   return posts.reduce((acc: PostGroupByYear, post) => {
     const year = post.publishDate.split(".")[0];

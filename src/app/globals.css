@@ -10,12 +10,27 @@
 
 * {
   font-family: "Eulyoo1945";
-  background-color: #18181a;
-  /* color: #191919; */
-  color: #f3f4f6;
+}
+
+:root {
+  color-scheme: light dark;
 }
 
 body {
+  color: light-dark(#191919, #f3f4f6);
+  background-color: light-dark(#f3f4f6, #18181a);
+}
+
+.light {
+  color-scheme: light;
+}
+
+.dark {
+  color-scheme: dark;
+}
+
+body {
+  transition: color 0.4s, background-color 0.4s;
   min-width: 280px;
   min-height: 100vh;
   scroll-behavior: smooth;
@@ -24,11 +39,26 @@ body {
 }
 
 h1 {
-  letter-spacing: 0.05em;
+  letter-spacing: 0.04em;
+}
+
+h2 {
+  letter-spacing: 0.04em;
+  font-size: 20px;
 }
 
 header > a {
   display: inline-block;
+}
+
+.to-light {
+  color: light-dark(rgba(19, 82, 149, 0.5), rgba(187, 187, 187, 0.5));
+  transition: color 0.5s ease;
+}
+
+.to-light:hover {
+  font-weight: 600;
+  color: light-dark(rgba(19, 82, 149, 1), #f3f4f6);
 }
 
 /* :root {
