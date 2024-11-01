@@ -34,15 +34,28 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  transition: color 0.5s ease;
+}
+
+.post-item:hover span {
+  color: #5e6365;
 }
 
 .post-item-title {
   flex: 1 1 0%;
-  width: .25rem;
+  width: 0.25rem;
   margin-right: 1rem;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.post-item-year {
+  margin-right: 1rem;
+}
+
+.post-item-date {
+  text-align: start;
 }
 
 .post-more {

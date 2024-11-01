@@ -1,23 +1,29 @@
-"use client";
+import { getPosts } from "@/lib/posts";
+import { groupPostsByYear } from "@/utils/posts";
+import PostCard from "@/components/PostCard";
 
-import { MDXRemote } from "next-mdx-remote";
-import { Post } from "@/lib/types";
+export default async function FilteredPostList() {
+  const posts = await getPosts();
+  const groupedPostsByYear = groupPostsByYear(posts);
 
-interface FilteredPostListProps {
-  posts: Post[];
-}
+  const YearSection = () => {
+    return (
+      <div>
+        {Object.entries(groupedPostsByYear)
+          .sort(([yearA], [yearB]) => Number(yearB) - Number(yearA))
+          .map(([year, posts]) => (
+            <div key={year} className="flex mb-6">
+              <h1 className="post-item-year">{year}</h1>
+              <ul className="post-list">
+                {posts.map((post) => (
+                  <PostCard key={post.slug} posts={post} />
+                ))}
+              </ul>
+            </div>
+          ))}
+      </div>
+    );
+  };
 
-export default function FilteredPostList({ posts }: FilteredPostListProps) {
-  return (
-    <div>
-      {posts.map((post) => (
-        <div key={post.slug}>
-          <h2>{post.title}</h2>
-          <p>{post.context}</p>
-          <time>{post.publishDate}</time>
-          <MDXRemote {...post.content} />
-        </div>
-      ))}
-    </div>
-  );
+  return <YearSection />;
 }

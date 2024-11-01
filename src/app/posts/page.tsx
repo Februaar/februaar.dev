@@ -9,5 +9,5 @@ export default async function PostsPage() {
     return <h1>Empty</h1>; // TODO: Empty UI
   }
 
-  return <FilteredPostList posts={posts}/>;
+  return <FilteredPostList />;
 }
