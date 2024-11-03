@@ -25,9 +25,6 @@
     "typography": "^0.16.24"
   },
   "devDependencies": {
-    "@content-collections/core": "^0.7.2",
-    "@content-collections/mdx": "^0.1.6",
-    "@content-collections/next": "^0.2.3",
     "@tailwindcss/typography": "^0.5.15",
     "@types/node": "^20",
     "@types/react": "^18",

@@ -6,8 +6,8 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
   };
 }
 
-const CustomComponents: MDXComponents = {
-  h1: (props) => <h1 style={{ color: "blue" }} {...props} />,
-};
+// const CustomComponents: MDXComponents = {
+//   h1: (props) => <h1 style={{ color: "blue" }} {...props} />,
+// };
 
-export default CustomComponents;
+// export default CustomComponents;

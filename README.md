@@ -1,6 +1,7 @@
 # Next.js 활용 나만의 기술 블로그
 
-**februaar.dev**는 Next.js 14 (App Router)를 사용하여 만든 개인 블로그입니다. 개인 기록과 기술 학습을 위해 제작했습니다.
+**februaar.dev**는 Next.js 14 (App Router)를 사용하여 만든 개인 블로그입니다.
+개인 기록과 기술 학습을 위해 제작했습니다.
 
 ## 기술 스택
 
