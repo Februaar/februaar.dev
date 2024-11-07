@@ -9,15 +9,6 @@ export default async function Home() {
   return (
     <article>
       <div className="mt-12 mb-8">
-        <span className="page-title">Retrospect</span>
-      </div>
-      <ul className="post-list">
-        {pinnedPosts.map((post) => (
-          <PostCard key={post.slug} posts={post} />
-        ))}
-      </ul>
-
-      <div className="mt-12 mb-8">
         <span className="page-title">Recent Posts</span>
       </div>
       <ul className="post-list">
@@ -26,6 +17,15 @@ export default async function Home() {
         ))}
       </ul>
 
+      <div className="mt-12 mb-8">
+        <span className="page-title">Learn</span>
+      </div>
+      <ul className="post-list">
+        {pinnedPosts.map((post) => (
+          <PostCard key={post.slug} posts={post} />
+        ))}
+      </ul>
+      
       <Link href={"/posts"}>
         <button className="post-more">
           <span className="text-sm bg-transparent">MORE</span>

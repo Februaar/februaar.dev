@@ -5,7 +5,7 @@ import Link from "next/link";
 import { MdOutlineLightMode, MdOutlineNightlight } from "react-icons/md";
 
 export default function Header() {
-  const [isDarkMode, setIsDarkMode] = useState(true);
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   const toggleTheme = () => {
     setIsDarkMode(!isDarkMode);
