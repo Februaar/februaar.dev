@@ -1,13 +1,12 @@
-import { MDXRemoteSerializeResult } from "next-mdx-remote";
-
-export type Post = {
-  slug: string;
+export interface PostMatter {
   title: string;
-  description: string;
-  publishDate: string;
-  context: string;
-  image: string;
+  date: string;
+  desc: string;
   tags: string[];
   pinned?: boolean;
-  content: MDXRemoteSerializeResult;
-};
+}
+
+export interface Post extends PostMatter {
+  slug: string;
+  content: string;
+}

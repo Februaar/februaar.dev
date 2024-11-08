@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import ThemeProvider from "../components/ThemeProvider";
 import "./globals.css";
 import "./style.css";
 
@@ -31,26 +32,28 @@ export default function RootLayout({
       </head>
 
       <body>
-        <main className="container px-4 py-14 min-h-[70vh]">
-          <Header />
-          <div>{children}</div>
-        </main>
+        <ThemeProvider>
+          <main className="container px-4 py-14 min-h-[70vh]">
+            <Header />
+            <div>{children}</div>
+          </main>
 
-        <hr className="container separator px-4 mt-24" />
+          <hr className="container separator px-4 mt-24" />
 
-        <div className="container px-4 my-4 mt-8">
-          <ul className="flex gap-3">
-            {itemsData.map((data) => (
-              <li className="sns-item to-light" key={data.path}>
-                <Link href={data.path} target="_blank">
-                  {data.pathName}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
+          <div className="container px-4 my-4 mt-8">
+            <ul className="flex gap-3">
+              {itemsData.map((data) => (
+                <li className="sns-item to-light" key={data.path}>
+                  <Link href={data.path} target="_blank">
+                    {data.pathName}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-        <Footer />
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );

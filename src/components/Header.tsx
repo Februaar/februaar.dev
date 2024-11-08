@@ -29,7 +29,7 @@ export default function Header() {
           <h1 className="title">Februaar.dev</h1>
         </Link>
         <Link href={"/about"}>
-          <h2 className="to-light">About</h2>
+          <h2 className="text-[20px] to-light">About</h2>
         </Link>
       </div>
 

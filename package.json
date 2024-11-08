@@ -18,11 +18,17 @@
     "@types/mdx": "^2.0.13",
     "autoprefixer": "^10.4.20",
     "clsx": "^2.1.1",
+    "gray-matter": "^4.0.3",
     "next": "14.2.13",
     "next-mdx-remote": "^5.0.0",
+    "next-themes": "^0.4.3",
     "react": "^18",
     "react-dom": "^18",
     "react-icons": "^5.3.0",
+    "rehype-pretty-code": "^0.14.0",
+    "rehype-slug": "^6.0.0",
+    "remark-breaks": "^4.0.0",
+    "shiki": "^1.22.2",
     "typography": "^0.16.24"
   },
   "devDependencies": {

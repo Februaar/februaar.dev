@@ -48,7 +48,6 @@
 
 .post-item:hover span {
   color: light-dark(rgba(65, 65, 65, 0.5), rgba(187, 187, 187, 0.5));
-
 }
 
 .post-item-title {
@@ -89,4 +88,15 @@
   text-decoration: underline;
   text-decoration-color: light-dark(#dde0e6, rgba(156, 163, 175, 0.5));
   text-underline-offset: 4px;
+}
+
+.to-light {
+  letter-spacing: 0.04em;
+  color: light-dark(rgba(19, 82, 149, 0.5), rgba(187, 187, 187, 0.5));
+  transition: color 0.5s ease;
+}
+
+.to-light:hover {
+  font-weight: 600;
+  color: light-dark(rgba(19, 82, 149, 1), #f3f4f6);
 }
