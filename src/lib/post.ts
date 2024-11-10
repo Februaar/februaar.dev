@@ -1,13 +1,13 @@
 import fs from "fs";
 import path from "path";
-import { readdir, readFile } from "fs/promises";
+import { readdir } from "fs/promises";
 import matter from "gray-matter";
 import { Post, PostMatter } from "@/lib/types";
 
 const postPath = path.resolve(process.cwd(), "src", "contents");
 
 // MDX 파일 파싱
-const parsePost = async (postPath: string): Promise<Post> => {
+export const parsePost = async (postPath: string) => {
   const postAbstract = parsePostAbstract(postPath);
   const postDetail = await parsePostDetail(postPath);
   return {
@@ -36,6 +36,6 @@ const parsePostDetail = async (postPath: string) => {
 };
 
 // post를 날짜 순으로 정렬
-const sortPostList = (PostList: Post[]) => {
+export const sortPostList = (PostList: Post[]) => {
   return PostList.sort((a, b) => (a.date > b.date ? -1 : 1));
 };

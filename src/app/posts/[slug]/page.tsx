@@ -1,7 +1,7 @@
 import { getPosts } from "@/lib/posts";
 import { Post } from "@/lib/types";
 import MDXContent from "@/components/MDXContent";
-import Tag2 from "@/components/Tag";
+import Tag from "@/components/Tag";
 
 interface PostDetailPageProps {
   params: {
@@ -25,14 +25,12 @@ export default async function PostDetailPage({ params }: PostDetailPageProps) {
           {post.title}
         </h1>
         <div className="flex flex-col gap-2">
-          <span>{post.publishDate}</span>
-          <Tag2 tags={post.tags}/>
+          <span>{post.date}</span>
+          <Tag tags={post.tags} />
         </div>
       </div>
 
-      <div>
-        <MDXContent content={post.content} />
-      </div>
+      <MDXContent content={post.content} />
     </div>
   );
 }

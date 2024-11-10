@@ -1,4 +1,3 @@
-// import { getPosts } from "@/lib/posts";
 import { getSortedPostsByDate, groupPostsByYear } from "@/utils/posts";
 import PostCard from "@/components/PostCard";
 

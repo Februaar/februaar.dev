@@ -11,7 +11,7 @@ export async function getSortedPostsByDate(): Promise<Post[]> {
 
   return posts.sort(
     (a, b) =>
-      new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime()
+      new Date(b.date).getTime() - new Date(a.date).getTime()
   );
 }
 
@@ -22,7 +22,7 @@ type PostGroupByYear = {
 // 연도별로 게시글 그룹화
 export function groupPostsByYear(posts: Post[]): PostGroupByYear {
   return posts.reduce((acc: PostGroupByYear, post) => {
-    const year = post.publishDate.split(".")[0];
+    const year = post.date.split(".")[0];
 
     if (!acc[year]) {
       acc[year] = [];

@@ -1,3 +1,5 @@
+import { MDXRemoteSerializeResult } from "next-mdx-remote";
+
 export interface PostMatter {
   title: string;
   date: string;
@@ -8,5 +10,5 @@ export interface PostMatter {
 
 export interface Post extends PostMatter {
   slug: string;
-  content: string;
+  content: MDXRemoteSerializeResult;
 }

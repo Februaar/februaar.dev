@@ -28,16 +28,7 @@ export default function AboutDetailPage() {
         </Link>
       </div>
 
-      <div>
-        자기소개
-        <br />
-        자기소개 <br />
-        자기소개 <br />
-        자기소개 <br />
-        자기소개 <br />
-        자기소개 <br />
-        자기소개 <br />
-      </div>
+      <div>끊임없이 고민하는 개발자 정경진입니다.</div>
     </div>
   );
 }
