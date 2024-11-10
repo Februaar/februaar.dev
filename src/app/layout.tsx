@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import ThemeProvider from "../components/ThemeProvider";
+import {ThemeProvider} from "../components/ThemeProvider";
 import "./globals.css";
 import "./style.css";
 

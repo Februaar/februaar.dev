@@ -1,7 +1,7 @@
 import { getPosts } from "@/lib/posts";
 import { Post } from "@/lib/types";
 import MDXContent from "@/components/MDXContent";
-import Tag2 from "@/components/Tag2";
+import Tag2 from "@/components/Tag";
 
 interface PostDetailPageProps {
   params: {
