@@ -14,6 +14,11 @@ const config = {
       },
     },
     extend: {
+      fontSize: {
+        h1: "24px;",
+        h2: "22px;",
+        h3: "20px;",
+      },
       colors: {
         border: "var(--border)",
         background: "var(--background)",

@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import {ThemeProvider} from "../components/ThemeProvider";
+// import { ThemeProvider } from "../components/ThemeProvider";
+import LinkItem from "../components/LinkItem";
 import "./globals.css";
 import "./style.css";
 
@@ -28,32 +28,31 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <head>
-        <script />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+          if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark')
+          } else {
+            document.documentElement.classList.remove('dark')
+          }
+          `,
+          }}
+        />
       </head>
 
-      <body>
-        <ThemeProvider>
-          <main className="container px-4 py-14 min-h-[70vh]">
+      <body className={`bg-background text-black dark:text-white`}>
+        <section className="mx-auto max-w-2xl xl:mx-w-[50rem] xl:px-8">
+          {/* <ThemeProvider> */}
+          <div className="h-full">
             <Header />
-            <div>{children}</div>
-          </main>
-
-          <hr className="container separator px-4 mt-24" />
-
-          <div className="container px-4 my-4 mt-8">
-            <ul className="flex gap-3">
-              {itemsData.map((data) => (
-                <li className="sns-item to-light" key={data.path}>
-                  <Link href={data.path} target="_blank">
-                    {data.pathName}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+            <main className="px-4 min-h-[60vh]">{children}</main>
+            <hr className="px-4 mt-24" />
+            <LinkItem />
+            <Footer />
           </div>
-
-          <Footer />
-        </ThemeProvider>
+          {/* </ThemeProvider> */}
+        </section>
       </body>
     </html>
   );

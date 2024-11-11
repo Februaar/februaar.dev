@@ -12,3 +12,8 @@ export interface Post extends PostMatter {
   slug: string;
   content: MDXRemoteSerializeResult;
 }
+
+export enum Theme {
+  dark = "dark",
+  light = "light",
+}

@@ -1,26 +1,4 @@
-.container {
-  width: 100%;
-  margin-right: auto;
-  margin-left: auto;
-}
 
-@media (min-width: 640px) {
-  .container {
-    max-width: 640px;
-  }
-}
-
-.separator {
-  border-width: 1px;
-  border-color: light-dark(#82898c, #323132);
-}
-
-.title {
-  font-size: 24px;
-  font-weight: 800;
-  width: fit-content;
-  margin-right: 1rem;
-}
 
 .page-title {
   font-size: 20px;
@@ -71,8 +49,10 @@
   display: flex;
   margin: 0 auto;
   margin-top: 2.5rem;
-  color: light-dark(#f3f4f6, rgba(156, 163, 175, 0.5));
-  background-color: light-dark(rgba(45, 45, 45, 0.5), rgba(45, 45, 45, 0.5));
+  color: #f3f4f6;
+  background-color: rgba(45, 45, 45, 0.5);
+  /* color: light-dark(#f3f4f6, rgba(156, 163, 175, 0.5));
+  background-color: light-dark(rgba(45, 45, 45, 0.5), rgba(45, 45, 45, 0.5)); */
   transition: background-color 0.5s ease;
   border-radius: 0.5rem;
   padding: 6px 12px;
@@ -97,6 +77,6 @@
 }
 
 .to-light:hover {
-  font-weight: 600;
+  font-weight: 700;
   color: light-dark(rgba(19, 82, 149, 1), #f3f4f6);
 }

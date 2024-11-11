@@ -19,7 +19,7 @@ export default async function PostDetailPage({ params }: PostDetailPageProps) {
   }
 
   return (
-    <div className="container mx-auto px-0">
+    <div className=" mx-auto px-0">
       <div className="mb-8">
         <h1 className="text-4xl font-bold mt-6 mb-3 pb-2 border-b">
           {post.title}

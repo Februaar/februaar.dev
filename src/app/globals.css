@@ -4,18 +4,22 @@
 
 @font-face {
   font-family: "Eulyoo1945";
-  src: url("/fonts/Eulyoo1945.ttf") format("truetype");
-  font-style: normal;
+  src: url("/fonts/Eulyoo1945.ttf");
 }
 
 @layer base {
   * {
+    @apply scroll-smooth;
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
-    font-family: "Eulyoo1945";
   }
+}
+
+body {
+  font-family: "Eulyoo1945";
 }
 
 :root,
