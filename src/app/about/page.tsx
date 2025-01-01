@@ -5,7 +5,7 @@ import { FiPaperclip } from "react-icons/fi";
 
 const PROFILE_IMAGE = "/icons/profile.png";
 const GITHUB_LINK = "https://github.com/Februaar";
-const RESUME_LINK = "https://github.com/Februaar";
+const RESUME_LINK = "https://bit.ly/3W2LzOJ";
 
 export default function AboutDetailPage() {
   return (

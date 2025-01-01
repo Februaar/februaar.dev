@@ -6,7 +6,7 @@ const LinkItem = () => {
       pathName: "Github",
       path: "https://github.com/Februaar",
     },
-    { pathName: "Email", path: "https://github.com" },
+    { pathName: "Resume", path: "https://bit.ly/3W2LzOJ" },
   ];
 
   return (
