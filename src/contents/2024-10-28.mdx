@@ -1,0 +1,90 @@
+---
+title: "mdx-패키지-적용하기"
+description: "기술 블로그를 만들면서 mdx 패키지에 대해 공부했습니다."
+date: "2024.10.28"
+tags:
+  - Learn
+  - TypeScript
+pinned: false
+---
+
+### 📌 초기 설정
+
+```
+yarn add @next/mdx @mdx-js/loader @mdx-js/react
+yarn add -D @types/mdx
+```
+yarn과 typescript를 사용한다는 가정하에 다음 명령어를 실행합니다.
+
+```
+// next.config.mjs
+
+import nextMDX from '@next/mdx';
+
+const withMDX = nextMDX({
+  extension: /\.mdx?$/,
+  options: {
+    remarkPlugins: [],
+    rehypePlugins: [],
+  },
+});
+
+const nextConfig = {
+  pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
+  reactStrictMode: true,
+};
+
+export default withMDX(nextConfig);
+```
+
+MDX를 사용하기 위해 next.config.mjs 파일을 업데이트 한다.
+
+```
+// src/mdx-components.tsx
+
+import type { MDXComponents } from 'mdx/types';
+
+export function useMDXComponents(components: MDXComponents): MDXComponents {
+  return {
+      ...components,
+  };
+}
+```
+
+src 폴더 하위에 mdx-components.tsx 파일을 생성한다.
+
+> App router와 함께 MDX를 사용하려면 mdx-components.tsx가 필요하며, 이를 사용하지 않으면 작동하지 않는다고 하니 명심해야된다.
+실제로 해당 파일 위치를 src 폴더와 같은 레벨에 두고 작동시켜서 오류가 발생했었다.
+
+------
+
+### 📌 첫 게시글 생성
+
+```
+폴더 구조
+
+src/
+┗ app/
+┗ posts/
+┗ page.mdx
+```
+
+초기 설정을 마치면 이제 프로젝트에 MDX 지원이 되므로 .mdx 파일을 생성하면 된다.
+
+```
+page.mdx
+
+# Welcome to my MDX page!
+
+This is some **bold** and _italics_ text.
+
+This is a list in markdown:
+
+- One
+- Two
+- Three
+
+Checkout my React component:
+```
+
+> 해당 경로에 page.mdx 게시글을 생성하고 /posts에 접근하면 해당 마크다운이 표시된다면 제대로 작동하는 것을 확인할 수 있다.
