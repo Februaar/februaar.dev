@@ -53,3 +53,127 @@ function increment() {
 
 document.getElementById("btn").addEventListener("click", increment);
 ```
+
+- 버튼을 클릭하면 콘솔에는 값이 바뀌지만, UI는 변하지 않는다.
+
+----------
+
+#### ✅ useState 흉내내기
+
+```
+// useState 함수 정의
+function useState(initialValue) {
+  let state = initialValue;
+
+  function setState(newValue) {
+    state = newValue;
+    render(); // UI를 업데이트하는 역할
+  }
+
+  return [() => state, setState];
+}
+
+// 상태 및 UI 업데이트 함수 만들기
+const [getCount, setCount] = useState(0);
+
+function render() {
+  document.getElementById("count").innerText = getCount();
+}
+
+document.getElementById("btn").addEventListener("click", () => {
+  setCount(getCount() + 1);
+});
+
+render(); // 초기 UI 렌더링
+```
+
+- getCount()를 사용해서 상태를 읽고,
+- setCount()를 호출하면 UI가 자동으로 업데이트 되도록 하였음
+
+----------
+
+코드를 좀 더 자세히 보면,
+
+#### 1️⃣ useState 함수 정의
+
+```
+function useState(initialValue) {
+  let state = initialValue;
+
+  function setState(newValue) {
+    state = newValue;
+    render(); // 상태가 바뀌면 UI를 다시 그려줌
+  }
+
+  return [() => state, setState];
+}
+```
+
+- **useState(initialValue)** 를 호출하면 상태를 저장할 변수 **state**를 만들고,
+- 상태를 업데이트 하는 **setState** 함수를 정의한 후,
+- **state**를 읽을 수 있는 함수와 **setState**를 배열 형태로 반환
+
+#### 2️⃣ useState를 사용하여 상태 만들기
+
+```
+const [getCount, setCount] = useState(0);
+```
+
+**useState(0)** 을 호출하면:
+
+- **getCount()** 를 실행하면 **state** 값을 반환하고,
+- **setCount(newValue)** 를 실행하면 **state** 를 업데이트 하고 **render()** 를 호출
+
+**count** 라는 상태를 관리할 수 있는 시스템을 만든 것이다.
+
+#### 3️⃣ 화면을 업데이트하는 render 함수
+
+```
+function render() {
+  document.getElementById("count").innerText = getCount();
+}
+```
+
+- **render()** 함수는 현재 **getCount()** 값을 가져와서 **#count** 요소에 넣어주고,
+- **setState()** 가 호출되면 **render()** 가 실행되면서 UI가 최신 상태로 업데이트됨
+
+#### 4️⃣ 이벤트 리스너 등록
+
+```
+document.getElementById("btn").addEventListener("click", () => {
+  setCount(getCount() + 1);
+});
+```
+
+- 버튼 클릭시 **setCount(getCount() + 1)** 을 실행
+- **setCount()** 가 실행되면 내부 상태가 변경되고, **render()** 가 호출되어 화면을 업데이트
+
+#### 5️⃣ 초기 렌더링 실행
+
+```
+render();
+```
+
+- 초기 상태를 화면에 반영하기 위해 처음에 **render()** 실행
+
+----------
+
+### 트러블 슈팅
+
+**useState** 함수를 만들면서 최신 상태 값을 반환하는 방법에 대해 어떻게 구현할지 고민했다. 처음에는 **return [state, setState]** 처럼 값을 직접 반환했지만, **상태가 업데이트된 후에도 이전 값이 유지되는 문제**가 발생했다.
+
+이 문제를 해결하기 위해 **클로저 개념을 활용**하여, React의 **useState**처럼 상태를 유지하려면 **setState** 함수가 상태를 업데이트할 수 있도록 하고, **state**를 읽는 함수를 화살표 함수로 감싸 반환하도록 하여 최신 값을 유지할 수 있도록 하였다.
+
+#### 클로저(Closure)
+
+- JavaScript에서 함수가 외부 함수의 변수(state)를 기억하고 접근할 수 있는 것을 의미
+- **() => state** 를 반환하면, 이 함수가 **state** 를 기억하고 유지하는 역할을 함
+
+----------
+
+### 마무리
+
+바닐라 JS로 React 상태 관리 훅을 만들어 보기 전 학습 목표는 아래와 같았다.
+
+- React의 상태 관리 훅이 어떻게 동작하는지 이해했는가? // 네
+- 바닐라 JS로 React 훅과 비슷한 패턴을 만들어 보았는가? // 네
