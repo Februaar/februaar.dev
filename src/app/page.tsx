@@ -9,7 +9,7 @@ export default async function Home() {
   return (
     <article>
       <div className="mt-12 mb-8">
-        <span className="text-h3 font-bold ">TIL</span>
+        <span className="text-h3 font-bold">TIL</span>
       </div>
       <ul className="post-list">
         {pinnedPosts.map((post) => (
@@ -18,7 +18,7 @@ export default async function Home() {
       </ul>
 
       <div className="mt-12 mb-8">
-        <span className="text-h3 font-bold ">Recent Posts</span>
+        <span className="text-h3 font-bold">Recent Posts</span>
       </div>
       <ul className="post-list">
         {sortedPosts.slice(0, 5).map((sortedPost) => (
