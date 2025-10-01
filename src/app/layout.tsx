@@ -1,24 +1,23 @@
-import type { Metadata } from "next";
+// import type { Metadata } from "next";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 // import { ThemeProvider } from "../components/ThemeProvider";
 import LinkItem from "../components/LinkItem";
 import "./globals.css";
-import "./style.css";
 
-export const metadata: Metadata = {
-  title: "februaar.dev",
-  description: "정경진의 개발 블로그. 프론트엔드 개발 관련 기록을 남깁니다.",
-  metadataBase: new URL("https://februaar.dev"),
-};
+// export const metadata: Metadata = {
+//   title: "februaar.dev",
+//   description: "정경진의 개발 블로그. 프론트엔드 개발 관련 기록을 남깁니다.",
+//   metadataBase: new URL("https://februaar.dev"),
+// };
 
-const itemsData = [
-  {
-    pathName: "GitHub",
-    path: "https://github.com/Februaar",
-  },
-  { pathName: "Email", path: "https://github.com" },
-];
+// const itemsData = [
+//   {
+//     pathName: "GitHub",
+//     path: "https://github.com/Februaar",
+//   },
+//   { pathName: "Email", path: "https://github.com" },
+// ];
 
 export default function RootLayout({
   children,

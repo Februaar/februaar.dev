@@ -12,8 +12,8 @@ export default async function FilteredPostList() {
           .sort(([yearA], [yearB]) => Number(yearB) - Number(yearA))
           .map(([year, posts]) => (
             <div key={year} className="flex mb-6">
-              <h1 className="post-item-year">{year}</h1>
-              <ul className="post-list">
+              <h1 className="mr-4">{year}</h1>
+              <ul className="w-full flex flex-col gap-y-4">
                 {posts.map((post) => (
                   <PostCard key={post.slug} posts={post} />
                 ))}

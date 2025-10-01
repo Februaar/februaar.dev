@@ -20,6 +20,12 @@
 
 body {
   font-family: "Eulyoo1945";
+  /* transition: color 0.4s, background-color 0.4s;
+  min-width: 280px;
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  letter-spacing: 0.02em; */
 }
 
 :root,
@@ -64,15 +70,4 @@ body {
   .text-balance {
     text-wrap: balance;
   }
-}
-
-body {
-  /* color: light-dark(#191919, #f3f4f6); */
-  /* background-color: light-dark(#f3f4f6, #18181a); */
-  transition: color 0.4s, background-color 0.4s;
-  min-width: 280px;
-  min-height: 100vh;
-  scroll-behavior: smooth;
-  text-rendering: optimizeSpeed;
-  letter-spacing: 0.02em;
 }

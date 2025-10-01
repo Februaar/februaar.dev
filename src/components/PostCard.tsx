@@ -6,9 +6,11 @@ export default function PostCard({ posts }: { posts: Post }) {
 
   return (
     <Link href={`/posts/${posts.slug}`}>
-      <li className="post-item">
-        <span className="post-item-title">{posts.title}</span>
-        <span className="post-item-date">{reduceYear}</span>
+      <li className="w-full flex whitespace-nowrap overflow-hidden text-ellipsis">
+        <span className="transition-[color] duration-500 ease hover:text-[light-dark(rgba(65,65,65,0.5),rgba(187,187,187,0.5))] flex-1 basis-0 w-1 mr-4 whitespace-nowrap overflow-hidden text-ellipsis">
+          {posts.title}
+        </span>
+        <span className="text-start">{reduceYear}</span>
       </li>
     </Link>
   );
